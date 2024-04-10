@@ -1,0 +1,77 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f9f9f9;
+  text-align: left;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #555;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 10px;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+}
+
+.results {
+  padding-bottom: 70px;
+}
+
+.sheet {
+  margin: auto;
+  margin-left: 5%;
+  padding: 20px;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
