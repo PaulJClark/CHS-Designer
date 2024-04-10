@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CHS Designer</title>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  
+  <h1>Steel CHS Designer</h1>
+    <img src="chs.PNG" height = "300">
+    <form id="myForm">
+      
+      <h3>Section Properties</h3>
+      <label for="number1">Enter diameter, D (mm): </label>
+      <input type="number" id="number1" name="number1" required><br><br>
+      
+      <label for="number2">Enter wall thickness, t (mm): </label>
+      <input type="number" id="number2" name="number2" required><br><br>
+      <label for="number3">Enter yield strength of steel, f<sub>y</sub> (N/mm<sup>2</sup>):</label>
+      <input type="number" id="number3" name="number3" required><br><br>
+      <h3>Design Loading</h3>
+      <label for="number4">Enter applied shear, V<sub>d</sub> (kN): </label>
+      <input type="number" id="number4" name="number4" required><br><br>
+      <label for="number5">Enter applied moment, M<sub>d</sub> (kN): </label>
+      <input type="number" id="number5" name="number5" required><br><br>
+      <button type="button" id="calculateButton">Calculate</button>
+    </form>
+  
+    <h3>Results</h3>
+  
+    <p id="result"></p>
+
+    <script>
+        // Get references to the input elements and the result paragraph
+        const number1Input = document.getElementById('number1');
+        const number2Input = document.getElementById('number2');
+        const number3Input = document.getElementById('number3');
+        const number4Input = document.getElementById('number4');
+        const resultParagraph = document.getElementById('result');
+
+        // Get the button and add a click event listener
+        const calculateButton = document.getElementById('calculateButton');
+        calculateButton.addEventListener('click', () => {
+            // Get the values entered by the user
+            const number1 = parseFloat(number1Input.value);
+            const number2 = parseFloat(number2Input.value);
+            const number3 = parseFloat(number3Input.value);
+            const number4 = parseFloat(number4Input.value);
+            
+            // Check if the values are valid numbers
+            if (isNaN(number1) || isNaN(number2) || isNaN(number3) || isNaN(number4)) {
+                resultParagraph.textContent = 'Please enter valid numbers.';
+            } else {
+                // Perform the math calculation (for example, addition)
+                const dia = number1 - (2 * number2);
+                const pressure = number1 /(number2 * number3);
+                const pressureR = pressure.toFixed(2);
+                
+                // Display the result
+                resultParagraph.innerHTML = `Section area, A<sub>s</sub> = R<sup>2</sup> r 
+                <sup>2</sup> ${dia} m<sup>2</sup> <br>
+                Pressure, P = F/A = ${number1}/${dia} = ${pressureR}kN/m<sup>2</sup>`;
+            }
+        });
+    </script>
+</body>
+</html>
